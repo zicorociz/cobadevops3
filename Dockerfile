@@ -5,8 +5,9 @@ FROM node:16
 WORKDIR /app
 
 # Salin file package.json dan install dependensi
-COPY package.json ./
-RUN npm install
+COPY package*.json ./
+RUN npm ci
+RUN npm run build
 
 # Salin sisa file aplikasi
 COPY . .
