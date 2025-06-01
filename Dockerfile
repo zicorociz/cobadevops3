@@ -12,7 +12,7 @@ RUN npm install
 COPY . .
 
 # Tentukan port yang digunakan
-EXPOSE 8080
+EXPOSE 8090
 
 # Jalankan aplikasi
 CMD ["npm", "start"]
