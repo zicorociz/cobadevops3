@@ -13,7 +13,7 @@ export const Cart = () => {
             setCategories(date)
         } 
         fetchCategories()
-     }, [])
+     }, []) 
 
   return (
     <div className="px-4 mx-auto py-4 md:py-6 dark:text-gray-300 dark:bg-gray-900">
