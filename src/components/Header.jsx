@@ -50,6 +50,7 @@ const Header = () => {
             Context
           </Link>
         </nav>
+        <Link to="/login" className="mr-5 hover:text-yellow-500">Login</Link>
         <Link
           to={"/ShoppingCard"}
           className="inline-flex items-center text-white bg-yellow-500 border-0 py-2 px-4 focus:outline-none hover:bg-yellow-700 rounded text-base mt-4 md:mt-0"
