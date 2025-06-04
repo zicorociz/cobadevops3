@@ -18,4 +18,8 @@ ENV PORT=8090
 # Expose the port
 EXPOSE $PORT
 # Run serve to serve the build folder
+<<<<<<< HEAD
 CMD ["sh", "-c", "serve -s build -l $PORT"]
+=======
+CMD ["sh", "-c", "serve -s build -l $PORT"]
+>>>>>>> a76ff9f9cec94ac1be10145101039b0b23db32db
