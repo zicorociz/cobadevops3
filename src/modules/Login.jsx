@@ -16,7 +16,7 @@ const Login = () => {
       // Redirect user to home page upon successful login
       history.push('/');
     } else {
-      setErrorMessage('Invalid credentials, please try again.');
+      setErrorMessage('Invalid credentials, please try asgain.');
     }
   };
 
