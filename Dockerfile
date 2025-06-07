@@ -1,25 +1,23 @@
-# Build stage
+# Tahap Build
 FROM node:16 AS builder
 WORKDIR /app
-# Copy all files to ensure public and src are available
+# Menyalin semua file ke dalam container agar folder public dan src tersedia
 COPY . .
+# Menginstal dependensi berdasarkan file package-lock.json
 RUN npm ci
+# Menjalankan proses build aplikasi React
 RUN npm run build
 
-# Production stage
+# Tahap Produksi
 FROM node:16
 WORKDIR /app
-# Install serve globally
+# Menginstal 'serve' secara global untuk menjalankan aplikasi
 RUN npm install -g serve
-# Copy the build folder from the builder stage
+# Menyalin folder hasil build dari tahap builder ke tahap produksi
 COPY --from=builder /app/build ./build
-# Set the port environment variable
+# Menetapkan environment variable untuk port
 ENV PORT=8090
-# Expose the port
+# Membuka port yang digunakan aplikasi
 EXPOSE $PORT
-# Run serve to serve the build folder
-<<<<<<< HEAD
+# Menjalankan aplikasi menggunakan 'serve' pada port yang telah ditentukan
 CMD ["sh", "-c", "serve -s build -l $PORT"]
-=======
-CMD ["sh", "-c", "serve -s build -l $PORT"]
->>>>>>> a76ff9f9cec94ac1be10145101039b0b23db32db
