@@ -20,7 +20,7 @@ export const Cart = () => {
       <div className="container m-auto flex md:text-left text-center md:justify-between justify-center items-center">
         <div>
           <h2 className="text-3xl font-medium">Popular Categories</h2>
-          <div className="mt-2">Choose from variety of items</div>
+          <div className="mt-2">Choose from variety of item</div>
         </div>
         <Link to={`/ProductPage/`} className="md:flex hidden items-center uppercase text-gray-500">
           All Categories
