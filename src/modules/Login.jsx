@@ -42,7 +42,7 @@ const Login = () => {
             <input
               type="password"
               id="password"
-              className="w-full p-2 mt-2 border border-gray-300 rounded-lg"
+              className="w-full p-2 mt-2 border border-gray-300 rounded-lg" 
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
