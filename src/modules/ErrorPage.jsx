@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'; // ✅ Tambahkan ini
 
-const ErrorPage = ({title, des, buttonOne, buttonTwo}) => {
+const ErrorPage = ({ title, des, buttonOne, buttonTwo }) => {
   return (
     <div className="flex justify-center items-center h-[60vh]">
       <div className="text-center">
@@ -11,18 +12,25 @@ const ErrorPage = ({title, des, buttonOne, buttonTwo}) => {
           {des}
         </p>
         <div className="flex items-center justify-center mt-6 gap-x-3">
-          <Link to='/' className="inline-flex items-center rounded-md bg-yellow-500 px-3.5 py-1.5 text-base font-semibold leading-7 text-black dark:text-white">
+          <Link to="/" className="inline-flex items-center rounded-md bg-yellow-500 px-3.5 py-1.5 text-base font-semibold leading-7 text-black dark:text-white">
             {buttonOne}
           </Link>
 
-          <Link to='/' className="rounded-md bg-gray-600 px-3.5 py-1.5 text-base font-semibold leading-7 hover:bg-gray-500 ">
+          <Link to="/" className="rounded-md bg-gray-600 px-3.5 py-1.5 text-base font-semibold leading-7 hover:bg-gray-500">
             {buttonTwo}
           </Link>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ErrorPage
+// ✅ Tambahkan validasi props
+ErrorPage.propTypes = {
+  title: PropTypes.string.isRequired,
+  des: PropTypes.string.isRequired,
+  buttonOne: PropTypes.string.isRequired,
+  buttonTwo: PropTypes.string.isRequired,
+};
 
+export default ErrorPage;

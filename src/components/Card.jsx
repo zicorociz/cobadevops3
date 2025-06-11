@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export const Cart = () => {
 
@@ -22,7 +22,7 @@ export const Cart = () => {
           <h2 className="text-3xl font-medium">Popular Categories</h2>
           <div className="mt-2">Choose from variety of items</div>
         </div>
-        <Link to={`/ProductPage/`} className="md:flex hidden items-center uppercase text-gray-500">
+        <Link to={'/ProductPage/'} className="md:flex hidden items-center uppercase text-gray-500">
           All Categories
           <svg
             xmlns="http://www.w3.org/2000/svg"

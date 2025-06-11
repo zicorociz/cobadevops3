@@ -1,19 +1,19 @@
-import '@testing-library/jest-dom';  // Untuk mendukung toBeInTheDocument
+import '@testing-library/jest-dom'; // Untuk mendukung toBeInTheDocument
 import { render, screen, fireEvent } from '@testing-library/react';
-import Login from '../modules/Login';  // Sesuaikan dengan lokasi file Login.jsx
+import Login from '../modules/Login'; // Sesuaikan dengan lokasi file Login.jsx
 import { MemoryRouter, useNavigate } from 'react-router-dom';
 
 // Mock `useNavigate` dari `react-router-dom`
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
-  useNavigate: jest.fn(),  // Mock useNavigate
+  useNavigate: jest.fn(), // Mock useNavigate
 }));
 
 test('renders login form and handles login', () => {
   render(
     <MemoryRouter>
       <Login />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 
   // Validasi form input
@@ -37,7 +37,7 @@ test('displays error message when invalid credentials are provided', () => {
   render(
     <MemoryRouter>
       <Login />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 
   // Simulasikan input yang salah
@@ -50,8 +50,8 @@ test('displays error message when invalid credentials are provided', () => {
 });
 
 test('redirects to home page when credentials are correct', () => {
-  const mockNavigate = jest.fn();  // Mock fungsi navigate
-  useNavigate.mockReturnValue(mockNavigate);  // Mock `useNavigate` untuk menggunakan mockNavigate
+  const mockNavigate = jest.fn(); // Mock fungsi navigate
+  useNavigate.mockReturnValue(mockNavigate); // Mock `useNavigate` untuk menggunakan mockNavigate
 
   const mockUser = { email: 'test@example.com', password: 'password123' };
   localStorage.setItem('user', JSON.stringify(mockUser));
@@ -59,7 +59,7 @@ test('redirects to home page when credentials are correct', () => {
   render(
     <MemoryRouter>
       <Login />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 
   // Simulasikan input yang benar
@@ -70,3 +70,4 @@ test('redirects to home page when credentials are correct', () => {
   // Verifikasi bahwa navigate dipanggil dengan '/'
   expect(mockNavigate).toHaveBeenCalledWith('/');
 });
+/* eslint-env jest */
