@@ -5,13 +5,16 @@ FROM node:16
 WORKDIR /app
 
 # Salin file package.json dan install dependensi
-COPY package.json ./
-RUN npm install
+COPY package*.json ./
+RUN npm ci
 
-# Salin sisa file aplikasi
+# 🔁 Salin semua source code setelah install dependencies
 COPY . .
 
-# Tentukan port yang digunakan
+# Build aplikasi
+RUN npm run build
+
+# Tentukan port
 EXPOSE 8090
 
 # Jalankan aplikasi
