@@ -66,4 +66,5 @@ const Login = () => {
 };
 
 export default Login;
-// This code defines a simple login componenst using React.
+// This code defines a simple login component using Reacthgh.
+// It in  cludes a form for users to enter their email and password, validates the credentials against stored user data in localStorage, and provides feedback on successful or failed login attempts. The component uses React hooks for state management and the useNavigate hook from react-router-dom for navigation.
