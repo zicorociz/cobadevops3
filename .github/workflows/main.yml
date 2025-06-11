@@ -48,4 +48,8 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/my-app:production
             docker stop my-app || true
             docker rm my-app || true
-            docker run -d --name my-app -p 8090:8090 ${{ secrets.DOCKER_USERNAME }}/my-app:production
+            docker run -d --name my-app -p 8090:8090 \
+              -e FIREBASE_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }} \
+              -e FIREBASE_CLIENT_EMAIL=${{ secrets.FIREBASE_CLIENT_EMAIL }} \
+              -e FIREBASE_PRIVATE_KEY="${{ secrets.FIREBASE_PRIVATE_KEY }}" \
+              ${{ secrets.DOCKER_USERNAME }}/my-app:production
