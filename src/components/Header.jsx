@@ -115,3 +115,4 @@ const Header = () => {
 };
 
 export default Header;
+//       expect(mockNavigate).toHaveBeenCalledWith('/');  // Verifikasi navigasi ke halaman utama
