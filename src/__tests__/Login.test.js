@@ -71,3 +71,5 @@ test('redirects to home page when credentials are correct', () => {
   expect(mockNavigate).toHaveBeenCalledWith('/');
 });
 /* eslint-env jest */
+// This code is a Jest test suite for the Login component in a React application.
+// It tests the rendering of the login form, handling of login submissions, and validation of user credentials.

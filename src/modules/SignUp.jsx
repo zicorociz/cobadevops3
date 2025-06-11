@@ -83,3 +83,4 @@ const SignUp = () => {
 
 export default SignUp;
 // This code defines a SignUp component that allows users to create an account.
+// It includes form validation and stores user credentials in localStorage.
