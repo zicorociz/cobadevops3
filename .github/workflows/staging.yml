@@ -46,7 +46,7 @@ jobs:
         run: npm run lint
         continue-on-error: true  # Jika ingin melanjutkan meskipun ada error di linting
 
-    SonarCloud:
+  SonarCloud:
     runs-on: ubuntu-latest
     needs: lint
     steps:
@@ -80,8 +80,6 @@ jobs:
           token: ${{ secrets.SONAR_TOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-          
 
   # Job untuk build dan push Docker image
   
