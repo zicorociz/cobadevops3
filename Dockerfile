@@ -16,4 +16,8 @@ COPY . .
 EXPOSE 8090
 
 # Jalankan aplikasi
-CMD ["npm", "start"]
+CMD ["npm", "start"]
+# Gunakan image dasar untuk produksi
+# FROM node:16-alpine
+# WORKDIR /app
+# COPY package*.json ./
