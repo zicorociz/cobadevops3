@@ -1,32 +1,37 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault();
 
-    // Get user data from localStorage
-    const storedUser = JSON.parse(localStorage.getItem('user'));
+    // Simple validation
+    if (password !== confirmPassword) {
+      setErrorMessage('Passwords do not match.');
+      return;
+    }
 
-    // Validate login
-    if (storedUser && storedUser.email === email && storedUser.password === password) {
-      navigate('/'); // Redirect to home page
+    // Store the user credentials in localStorage (mock API)
+    if (email && password) {
+      localStorage.setItem('user', JSON.stringify({ email, password })); // Save to localStorage
+      navigate('/login'); // Redirect to login page
     } else {
-      setErrorMessage('Invalid credentials, please try again.');
+      setErrorMessage('Please fill in all fields.');
     }
   };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full sm:w-96">
-        <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
+        <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
         {errorMessage && <p className="text-red-500 text-center">{errorMessage}</p>}
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleSignUp}>
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-700">Email</label>
             <input
@@ -38,7 +43,7 @@ const Login = () => {
               required
             />
           </div>
-          <div className="mb-6">
+          <div className="mb-4">
             <label htmlFor="password" className="block text-gray-700">Password</label>
             <input
               type="password"
@@ -49,20 +54,31 @@ const Login = () => {
               required
             />
           </div>
+          <div className="mb-6">
+            <label htmlFor="confirmPassword" className="block text-gray-700">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              className="w-full p-2 mt-2 border border-gray-300 rounded-lg"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+          </div>
           <button
             type="submit"
             className="w-full py-2 px-4 bg-yellow-500 text-white rounded-lg hover:bg-yellow-700"
           >
-            Login
+            Sign Up
           </button>
         </form>
         <p className="mt-4 text-center">
-          Don't have an account?{' '}
-          <a href="/signup" className="text-yellow-500">Sign up</a>
+          Already have an account?{' '}
+          <a href="/login" className="text-yellow-500">Login</a>
         </p>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default SignUp;
