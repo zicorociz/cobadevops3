@@ -26,7 +26,7 @@ const Products = () => {
       </div>
       <p className="lg:w-1/2 w-full leading-relaxed text-gray-400 text-opacity-90">
         Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
-        gentrify, subway tile poke farm-to-table. Franzen you probably haven't
+        gentrify, subway tile poke farm-to-table. Franzen you probably haven&apos;t
         heard of them man bun deep jianbing selfies heirloom prism food truck
         ugh squid celiac humblebrag.
       </p>
@@ -34,7 +34,7 @@ const Products = () => {
     <div className="flex flex-wrap -m-4">
         {
             categories.map((item) =>(
-                <div className="xl:w-1/4 md:w-1/2 p-4">
+                <div key={item.id} className="xl:w-1/4 md:w-1/2 p-4">
                 <div className="bg-gray-800 bg-opacity-40 p-6 rounded-lg">
                   <img
                     className="h-40 rounded w-full object-cover object-center mb-6"
