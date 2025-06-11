@@ -61,8 +61,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.organization=zicorociz
-            -Dsonar.projectKey=zicorociz_cobadevops3
+            -Dsonar.organization=parisyanaylah
+            -Dsonar.projectKey=ParisyaNaylah_Ecommerce-project
             -Dsonar.sources=src
             -Dsonar.tests=src
             -Dsonar.inclusions=src/**/*.spec.ts,src/**/*.test.ts
@@ -74,7 +74,7 @@ jobs:
             -Dsonar.pullrequest.branch=${{ github.head_ref }}
             -Dsonar.pullrequest.base=${{ github.base_ref }}
             -Dsonar.pullrequest.provider=github
-            -Dsonar.pullrequest.github.repository=zicorociz/cobadevops3
+            -Dsonar.pullrequest.github.repository=ParisyaNaylah/Ecommerce-project
             -Dsonar.pullrequest.github.token=${{ secrets.GITHUB_TOKEN }}
 
   # Job untuk build dan push Docker image
