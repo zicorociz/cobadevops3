@@ -1,3 +1,14 @@
+# E-Commerce Website
+
+A modern and responsive E-commerce web application that allows users to browse, filter, and purchase products online. The website is designed to showcase a variety of product categories including electronics, jewelry, and clothing.
+
+## Overview
+This document describes the CI/CD (Continuous Integration & Continuous Deployment) pipeline setup for the E-Commerce Website project. The pipeline automates the steps from code commit to production deployment, ensuring faster and more reliable delivery.
+
+## Tech Stack
+
+
+
 features of a client site React project include:
 
 1. A modern and responsive design that reflects the client's brand and style
