@@ -10,7 +10,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Get user data from localStorage
+    // Get user data from localStoragea
     const storedUser = JSON.parse(localStorage.getItem('user'));
 
     // Validate login
