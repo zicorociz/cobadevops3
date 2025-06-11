@@ -4,7 +4,7 @@ import Hero from '../components/Hero';
 import FeatureCart from '../components/FeatureCart';
 import StateCart from '../components/StateCart';
 //import Footer from '../components/Footer';
-import Card from '../components/Card'; // ✅ ini sesuai dengan file Card.jsx
+import Card from '../components/Card'; // ✅ default import
 import Loader from '../utiliy/Loadrer';
 
 const Home = () => {
