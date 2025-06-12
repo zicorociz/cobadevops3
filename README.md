@@ -1,33 +1,78 @@
-# E-Commerce Website
+# Proyek CI/CD DevOps – E-commerce
 
-A modern and responsive E-commerce web application that allows users to browse, filter, and purchase products online. The website is designed to showcase a variety of product categories including electronics, jewelry, and clothing.
+Repositori ini dibuat untuk mengimplementasikan praktik **Continuous Integration (CI)** dan **Continuous Deployment (CD)** menggunakan GitHub Actions, Docker, SonarQube, dan deployment ke server VPS (Niagahoster). Proyek ini dilengkapi dengan monitoring uptime menggunakan Uptime Kuma.
 
-## Overview
-This document describes the CI/CD (Continuous Integration & Continuous Deployment) pipeline setup for the E-Commerce Website project. The pipeline automates the steps from code commit to production deployment, ensuring faster and more reliable delivery.
+---
 
-## Tech Stack
+## 📌 Tujuan
 
-* [React.js](https://reactjs.org)
-* [Jest](https://jestjs.io/)
-* [SonarCloud](https://sonarcloud.io/)
-* [Github Action](https://github.com/features/actions)
-* [Docker](https://www.docker.com/)
-* [DockerHub](https://hub.docker.com/)
-* [VPS](https://www.niagahoster.co.id/)
+1. Otomatisasi build, test, dan analisis kode menggunakan CI.
+2. Otomatisasi deployment ke server produksi menggunakan CD.
+3. Monitoring aplikasi yang telah di-deploy.
 
-## CI/CD Pipeline
-GitHub Actions automates testing, building, and deployment.
-### Staging Branch (staging)
-1. Run Jest tests
-2. Run ESLint
-3. Analyze code quality via SonarCloud
-4. Build & push Docker image (my-app:staging)
+---
 
-### Production Branch (main)
-1. Build & push Docker image (my-app:production)
-2. SSH into server and deploy via Docker:
+## 🔁 Alur CI/CD
+
+### 1. Continuous Integration (CI) – Branch `staging`
+
+Setiap kali ada push ke branch `staging`, maka proses berikut akan dijalankan:
+
+#### 🔄 Workflow CI:
+
+1. **Install dependensi**
+   ```bash
+   npm install
+
+2. **Unit Testing**
+```bash
+npm test
 ```
-docker pull
-docker stop && remove old container
-docker run -d -p 8090:8090
-```
+
+3. **Analisis Kode dengan SonarQube**
+
+- Menggunakan token rahasia `SONAR_TOKEN`.
+
+- Tools ini akan melakukan analisa terhadap kualitas kode, seperti code smells, duplikasi, dan potensi bugs.
+
+4. **Build Docker Image**
+
+- Image akan dibangun berdasarkan `Dockerfile`.
+
+- Image diberi tag `cobadevops3-staging`.
+
+### 2.Continuous Deployment (CD) – Branch `main`
+Setiap kali ada push ke branch `main`, maka proses berikut akan dijalankan:
+
+#### 🔄 Workflow CD:
+
+1. **Login ke DockerHub**
+
+- Menggunakan secret `DOCKER_USERNAME` dan `DOCKER_PASSWORD`.
+
+2. **Build Docker Image**
+
+- Dari source code terbaru di branch `main`.
+
+3. **Push Docker Image ke DockerHub**
+
+- Nama image: `username/cobadevops3-main`.
+
+4. **Remote Deployment ke VPS via SSH**
+
+- Menggunakan sshpass untuk SSH ke server VPS Niagahoster.
+
+- VPS akan:
+
+   - Menghentikan container lama (jika ada).
+
+   - Menghapus container lama.
+
+   - Menarik image terbaru dari DockerHub.
+
+   - Menjalankan container baru dengan port 3000.
+
+5. **Monitoring dengan Uptime Kuma**
+
+- Mengecek apakah server/proyek berhasil online pasca-deploy.
+
