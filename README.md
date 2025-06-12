@@ -15,25 +15,46 @@ Repositori ini dibuat untuk mengimplementasikan praktik **Continuous Integration
 
 ## 🔁 Alur CI/CD
 
+<div align="center">
+  <img src="https://github.com/zicorociz/cobadevops3/blob/5ca5476a26ba1c01ddca110cd84d5bc6b6dc21ad/workflow.png?raw=true" width="700"/>
+</div>
+
 ### 1. Continuous Integration (CI) – Branch `staging`
 Setiap kali ada push ke branch `staging`, maka proses berikut akan dijalankan:
 
 #### 🔄 Workflow CI:
 
 1. **Install dependensi**
+
+   Menginstal semua dependencies yang dibutuhkan proyek:
+
    ```bash
    npm install
 
-2. **Unit Testing**
-   ```bash
-   npm test
-   ```
+2. **Install Babel Dependencies**
 
-3. **Analisis Kode dengan SonarQube**
+   Digunakan untuk mendukung fitur ECMAScript terbaru di Jest:
+
+   ```bash
+   npm install --save-dev @babel/core @babel/preset-env babel-jest
+   ```
+3. **Run Unit Testing dengan Jest**
+
+   Menjalankan pengujian unit menggunakan Jest dan menampilkan laporan coverage:
+   ```bash
+   npm test -- --coverage
+   ```
+4. **Linting dengan ESLint**
+
+   Mengecek kualitas dan konsistensi gaya penulisan kode:
+   ```bash
+   npm run lint
+
+5. **Analisis Kode dengan SonarQube**
    - Menggunakan token rahasia `SONAR_TOKEN`.
    - Tools ini akan melakukan analisa terhadap kualitas kode, seperti code smells, duplikasi, dan potensi bugs.
 
-4. **Build Docker Image**
+6. **Build Docker Image**
    - Image akan dibangun berdasarkan `Dockerfile`.
    - Image diberi tag `cobadevops3-staging`.
 
