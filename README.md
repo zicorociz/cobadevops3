@@ -56,7 +56,7 @@ Setiap kali ada push ke branch `main`, maka proses berikut akan dijalankan:
       - Menghentikan container lama (jika ada).
       - Menghapus container lama.
       - Menarik image terbaru dari DockerHub.
-      - Menjalankan container baru dengan port 3000.
+      - Menjalankan container baru dengan port 8090.
 
 5. **Monitoring dengan Uptime Kuma**
    - Mengecek apakah server/proyek berhasil online pasca-deploy.
