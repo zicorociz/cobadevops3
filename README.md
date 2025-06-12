@@ -11,7 +11,14 @@ Repositori ini dibuat untuk mengimplementasikan praktik **Continuous Integration
 2. Otomatisasi deployment ke server produksi menggunakan CD.
 3. Monitoring aplikasi yang telah di-deploy.
 
-
+## ⚙️ Tools
+  * [React.js](https://reactjs.org)
+  * [Jest](https://jestjs.io/)
+  * [SonarCloud](https://sonarcloud.io/)
+  * [Github Action](https://github.com/features/actions)
+  * [Docker](https://www.docker.com/)
+  * [DockerHub](https://hub.docker.com/)
+  * [VPS](https://www.niagahoster.co.id/)
 
 ## 🔁 Alur CI/CD
 
