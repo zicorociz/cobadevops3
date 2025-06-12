@@ -12,7 +12,7 @@ WORKDIR /app
 # Install serve globally
 RUN npm install -g serve
 # Copy the dist folder from the builder stage
-COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/build ./build
 # Set the port environment variable
 ENV PORT=8090
 # Expose the port
