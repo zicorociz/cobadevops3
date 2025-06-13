@@ -1,21 +1,19 @@
-# Build stage
-FROM node:20 AS builder
+# Gunakan image dasar
+FROM node:20
+
+# Set direktori kerja
 WORKDIR /app
-# Copy all files to ensure public and src are available
-COPY . .
+
+# Salin file package.json dan install dependensi
+COPY package*.json ./
 RUN npm ci
 RUN npm run build
 
-# Production stage
-FROM node:20
-WORKDIR /app
-# Install serve globally
-RUN npm install -g serve
-# Copy the dist folder from the builder stage
-COPY --from=builder /app/dist ./dist
-# Set the port environment variable
-ENV PORT=8090
-# Expose the port
-EXPOSE $PORT
-# Run serve to serve the dist folder
-CMD ["sh", "-c", "serve -s dist -l $PORT"]
+# Salin sisa file aplikasi
+COPY . .
+
+# Tentukan port yang digunakan
+EXPOSE 8090
+
+# Jalankan aplikasi
+CMD ["npm", "start"]

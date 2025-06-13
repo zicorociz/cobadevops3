@@ -33,7 +33,7 @@ test('menambah jumlah item saat tombol "+" diklik', () => {
 test('mengurangi jumlah item saat tombol "-" diklik', () => {
   localStorage.setItem(
     'cart',
-    JSON.stringify([{ ...mockCart[0], quantity: 2 }])
+    JSON.stringify([{ ...mockCart[0], quantity: 2 }]),
   );
   render(<ShoppingCart />);
   const minusButton = screen.getByText('-');
