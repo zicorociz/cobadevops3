@@ -8,19 +8,23 @@ const ShoppingCart = () => {
   const [discount, setDiscount] = useState(0);
 
   useEffect(() => {
-    const newTotal = cart.reduce((acc, item) => {
-      const price = parseInt(item.price.toString().replace(/[^0-9]/g, ''));
-      return acc + (price * item.quantity);
-    }, 0);
+  const newTotal = cart.reduce((acc, item) => {
+    const price = parseInt(item.price.toString().replace(/[^0-9]/g, '')) || 0;
+    return acc + (price * item.quantity);
+  }, 0);
 
-    const originalTotal = cart.reduce((acc, item) => {
-      const original = parseInt(item.originalPrice?.toString().replace(/[^0-9]/g, '') || item.price);
-      return acc + (original * item.quantity);
-    }, 0);
+  const originalTotal = cart.reduce((acc, item) => {
+    const original = item.originalPrice
+      ? parseInt(item.originalPrice.toString().replace(/[^0-9]/g, ''))
+      : parseInt(item.price.toString().replace(/[^0-9]/g, ''));
+    return acc + (original * item.quantity);
+  }, 0);
 
-    setTotal(newTotal);
-    setDiscount(originalTotal - newTotal);
-  }, [cart]);
+  const discountValue = originalTotal - newTotal;
+  setTotal(newTotal);
+  setDiscount(discountValue >= 0 ? discountValue : 0); // mencegah diskon negatif
+}, [cart]);
+
 
   const handleInc = (id) => {
     const updatedCart = cart.map(item =>
