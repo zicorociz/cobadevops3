@@ -8,11 +8,11 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 
+RUN npm run build
 
 # Salin sisa file aplikasi
 COPY . .
 
-RUN npm run build
 
 # Tentukan port yang digunakanaaa
 EXPOSE 8090
