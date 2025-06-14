@@ -15,7 +15,7 @@ COPY . .
 RUN npm run build
 
 # Tentukan port yang digunakanaaa
-EXPOSE 8090
+EXPOSE 8050
 
 # Jalankan aplikasi
 CMD ["npm", "start"]
