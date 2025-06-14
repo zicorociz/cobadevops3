@@ -1,5 +1,5 @@
 # Gunakan image dasar
-FROM node:16
+FROM node:20
 
 # Set direktori kerja
 WORKDIR /app
@@ -7,20 +7,14 @@ WORKDIR /app
 # Salin file package.json dan install dependensi
 COPY package*.json ./
 RUN npm ci
+RUN npm run build
 
-# 💡 Salin hanya file penting untuk build
-COPY public ./public
-COPY src ./src
-#COPY .env ./
-# Tambah jika perlu: COPY tsconfig.json ./
-
-# 🚀 Jalankan build di sini (tetap di baris ini seperti yang kamu mau)
-RUN CI=false npm run build
-
-# ✅ Baru salin seluruh file project (jika masih dibutuhkan)
+# Salin sisa file aplikasi
 COPY . .
 
-# Tentukan port
+
+
+# Tentukan port yang digunakanaaa
 EXPOSE 8050
 
 # Jalankan aplikasi
