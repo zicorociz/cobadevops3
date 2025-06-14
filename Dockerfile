@@ -1,5 +1,5 @@
 # Gunakan image dasar
-FROM node:16
+FROM node:20
 
 # Set direktori kerja
 WORKDIR /app
