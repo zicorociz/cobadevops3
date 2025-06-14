@@ -1,5 +1,5 @@
 # Gunakan image dasar
-FROM node:20
+FROM node:16
 
 # Set direktori kerja
 WORKDIR /app
@@ -13,9 +13,8 @@ RUN npm run build
 # Salin sisa file aplikasi
 COPY . .
 
-
 # Tentukan port yang digunakanaaa
-EXPOSE 8090
+EXPOSE 8050
 
 # Jalankan aplikasi
 CMD ["npm", "start"]
