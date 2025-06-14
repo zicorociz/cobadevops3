@@ -1,5 +1,5 @@
 # Gunakan image dasar
-FROM node:16
+FROM node:20
 
 # Set direktori kerja
 WORKDIR /app
@@ -8,20 +8,14 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 
-# 💡 Salin hanya file penting untuk build
-COPY public ./public
-COPY src ./src
-#COPY .env ./
-# Tambah jika perlu: COPY tsconfig.json ./
 
-# 🚀 Jalankan build di sini (tetap di baris ini seperti yang kamu mau)
-RUN npm run build
-
-# ✅ Baru salin seluruh file project (jika masih dibutuhkan)
+# Salin sisa file aplikasi
 COPY . .
 
-# Tentukan port
-EXPOSE 8050
+RUN npm run build
+
+# Tentukan port yang digunakanaaa
+EXPOSE 8090
 
 # Jalankan aplikasi
 CMD ["npm", "start"]
