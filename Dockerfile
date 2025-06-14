@@ -7,12 +7,10 @@ WORKDIR /app
 # Salin file package.json dan install dependensi
 COPY package*.json ./
 RUN npm ci
-
-RUN npm run build
-
 # Salin sisa file aplikasi
 COPY . .
 
+RUN npm run build
 # Tentukan port yang digunakanaaa
 EXPOSE 8050
 
