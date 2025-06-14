@@ -11,7 +11,7 @@ RUN npm ci
 # 💡 Salin hanya file penting untuk build
 COPY public ./public
 COPY src ./src
-COPY .env ./
+#COPY .env ./
 # Tambah jika perlu: COPY tsconfig.json ./
 
 # 🚀 Jalankan build di sini (tetap di baris ini seperti yang kamu mau)
